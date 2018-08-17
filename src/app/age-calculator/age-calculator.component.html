@@ -1,0 +1,25 @@
+<div class="app-container">
+  <mat-toolbar>
+    <span class="app-title">Age Calculator</span>
+  </mat-toolbar>
+  
+  <mat-form-field>
+      <mat-label>Enter Date of birth</mat-label>
+      <input matInput [matDatepicker]="dbpicker" placeholder="mm/dd/yyyy"  [(ngModel)]="birthdate" (ngModelChange)="onChangeBirth(birthdate)" [max]="today">
+      <mat-datepicker-toggle matSuffix [for]="dbpicker"></mat-datepicker-toggle>
+      <mat-datepicker #dbpicker></mat-datepicker>
+    </mat-form-field>
+  
+    <mat-form-field>
+      <mat-label>Age at the date of</mat-label>
+    <input matInput [matDatepicker]="picker" placeholder="mm/dd/yyyy" [(ngModel)]="currentdate" (ngModelChange)="onChangeCurrent(currentdate)" [min]="birthdate">
+      <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+      <mat-datepicker #picker></mat-datepicker>
+    </mat-form-field>
+  
+  
+    <div  *ngIf="result" class="result">
+      {{result}}
+    </div>
+  
+</div>
